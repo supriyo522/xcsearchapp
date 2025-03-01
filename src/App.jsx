@@ -37,7 +37,7 @@ const App = () => {
 
   return (
     <div className="app-container">
-      {/* <h1>Country Search App</h1> */}
+      <h1>Country Search App</h1>
       <input
         type="text"
         className="search-input"
@@ -47,16 +47,18 @@ const App = () => {
       />
 
       <div className="countries-container">
-        {displayedCountries.length > 0 ? (
+        {/* Show the country list only if the page is loaded and there are countries */}
+        {filteredCountries.length === 0 && searchTerm.trim() && (
+          <p className="no-results">No matching countries found.</p>
+        )}
+        {/* Display countries */}
+        {displayedCountries.length > 0 &&
           displayedCountries.map((country, index) => (
             <div key={index} className="country-card">
               <img src={country?.png} alt={country?.common} />
               <p>{country?.common}</p>
             </div>
-          ))
-        ) : (
-          <p className="no-results">No matching countries found.</p>
-        )}
+          ))}
       </div>
     </div>
   );
