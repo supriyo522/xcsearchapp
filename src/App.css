@@ -77,3 +77,10 @@ h1 {
   font-size: 18px;
   font-weight: bold;
 }
+/* Loading Text */
+.loading-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: blue;
+}
+

@@ -4,6 +4,7 @@ import "./App.css";
 const App = () => {
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [loading, setLoading] = useState(true); // Added loading state
 
   useEffect(() => {
     fetch("https://countries-search-data-prod-812920491762.asia-south1.run.app/countries")
@@ -20,8 +21,12 @@ const App = () => {
           console.error("Unexpected data format:", data);
         }
       })
-      .catch((error) => console.error("Error fetching countries:", error));
+      .catch((error) => console.error("Error fetching countries:", error))
+      .finally(() => setLoading(false)); // Set loading to false after data fetch
   }, []);
+
+
+  
 
   const filteredCountries = searchTerm.trim()
     ? countries.filter((country) =>
@@ -46,20 +51,22 @@ const App = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
-      <div className="countries-container">
-        {/* Show the country list only if the page is loaded and there are countries */}
-        {filteredCountries.length === 0 && searchTerm.trim() && (
-          <p className="no-results">No matching countries found.</p>
-        )}
-        {/* Display countries */}
-        {displayedCountries.length > 0 &&
-          displayedCountries.map((country, index) => (
-            <div key={index} className="country-card">
-              <img src={country?.png} alt={country?.common} />
-              <p>{country?.common}</p>
-            </div>
-          ))}
-      </div>
+      {loading ? (
+        <p className="loading-text">Loading countries...</p> // Show loading message while fetching
+      ) : (
+        <div className="countries-container">
+          {displayedCountries.length > 0 ? (
+            displayedCountries.map((country, index) => (
+              <div key={index} className="country-card">
+                <img src={country?.png} alt={country?.common} />
+                <p>{country?.common}</p>
+              </div>
+            ))
+          ) : (
+            <p className="no-results">No matching countries found.</p>
+          )}
+        </div>
+      )}
     </div>
   );
 };
