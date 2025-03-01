@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./App.css"; // Importing the CSS file
+import "./App.css";
 
 const App = () => {
   const [countries, setCountries] = useState([]);
@@ -37,7 +37,7 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <h1>Country Search App</h1>
+      {/* <h1>Country Search App</h1> */}
       <input
         type="text"
         className="search-input"
