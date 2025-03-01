@@ -1,0 +1,79 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* App Container */
+.app-container {
+  padding: 20px;
+}
+
+/* Title */
+h1 {
+  color: #333;
+}
+
+/* Search Input */
+.search-input {
+  padding: 10px;
+  width: 80%;
+  max-width: 400px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  text-align: center;
+}
+
+/* Countries Container */
+.countries-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Country Card */
+.country-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px;
+  text-align: center;
+  width: 160px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.country-card:hover {
+  transform: scale(1.05);
+}
+
+/* Country Image */
+.country-card img {
+  width: 100px;
+  height: 60px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Country Name */
+.country-card p {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+}
+
+/* No Results Message */
+.no-results {
+  color: red;
+  font-size: 18px;
+  font-weight: bold;
+}
