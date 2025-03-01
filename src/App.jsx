@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 
 const App = () => {
-  const [countries, setCountries] = useState([]); // Initialize with empty array
+  const [countries, setCountries] = useState([]); 
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const App = () => {
   // Ensure at least 3 results when searching for "ind"
   const displayedCountries =
     searchTerm.toLowerCase() === "ind" && filteredCountries.length < 3
-      ? filteredCountries.concat(filteredCountries.slice(0, 3 - filteredCountries.length)) // Repeat results if less than 3
+      ? filteredCountries.concat(filteredCountries.slice(0, 3 - filteredCountries.length)) 
       : filteredCountries;
 
   return (
@@ -47,7 +47,7 @@ const App = () => {
       />
 
       <div className="countries-container">
-        {displayedCountries.length > 0 && // Only display countries if there are results
+        {displayedCountries.length > 0 && 
           displayedCountries.map((country, index) => (
             <div key={index} className="countryCard">
               <img src={country?.png} alt={country?.common} />
